@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">UTS_27962</string>
+
+//Profile
+    <string name="my_profileNIM">NIM : 00000027962</string>
+    <string name="my_profileNama">Nama : Andy Koesnaedi</string>
+    <string name="my_profileKelas">Kelas : EL</string>
+//
+
+</resources>
+
+
