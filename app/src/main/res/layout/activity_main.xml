@@ -19,7 +19,7 @@
             app:layout_constraintBottom_toBottomOf="@id/imageView"/>
 
         <Button
-            android:id="@+id/Profile"
+            android:id="@+id/btnProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -31,11 +31,11 @@
             android:text="PROFILE" />
 
         <Button
-            android:id="@+id/Login"
+            android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="@id/Profile"
+            app:layout_constraintTop_toTopOf="@id/btnProfile"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

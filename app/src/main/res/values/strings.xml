@@ -1,11 +1,18 @@
 <resources>
     <string name="app_name">UTS_27962</string>
 
-//Profile
+    //Profile
     <string name="my_profileNIM">NIM : 00000027962</string>
     <string name="my_profileNama">Nama : Andy Koesnaedi</string>
     <string name="my_profileKelas">Kelas : EL</string>
-//
+    //
+
+    //Popup
+    <string name="namePop">Andy Koesnaedi</string>
+    <string name="nimPop">00000027962</string>
+    <string name="titlePop">Selamat Datang</string>
+    <string name="btnPop">OK</string>
+    //
 
 </resources>
 

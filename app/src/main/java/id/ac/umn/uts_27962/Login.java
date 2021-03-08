@@ -3,19 +3,51 @@ package id.ac.umn.uts_27962;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import androidx.appcompat.widget.Toolbar;
 
 public class Login extends AppCompatActivity {
+    private Button btnLogin;
+    private EditText textUser, textPass;
+
+    private String trueUsername = "uasmobile";
+    private String truePassword = "uasmobilegenap";
+
+    private String userString, passString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        btnLogin = (Button) findViewById(R.id.btnLogin);
+
+        textUser = (EditText) findViewById(R.id.textUser);
+        textPass = (EditText) findViewById(R.id.textPass);
+
         Toolbar toolbar = (Toolbar)findViewById(R.id.menu_ToolbarLogin);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userString = textUser.getText().toString();
+                passString = textPass.getText().toString();
+                Log.i("hi" ,userString);
+                if(userString.equals(trueUsername) && passString.equals((truePassword))){
+                    Intent gotoLogin = new Intent(Login.this, listLagu.class);
+                    startActivityForResult(gotoLogin, 1);
+                }
+            }
+        });
     }
 
     @Override
