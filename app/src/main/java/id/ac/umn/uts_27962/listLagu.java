@@ -2,18 +2,21 @@ package id.ac.umn.uts_27962;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+
 
 import java.util.LinkedList;
 
@@ -32,6 +35,10 @@ public class listLagu extends AppCompatActivity {
         mAdapter = new SongListAdapter(this, detailLagu);
         daftarLagu.setAdapter(mAdapter);
         daftarLagu.setLayoutManager(new LinearLayoutManager(this));
+
+        Toolbar toolbar = findViewById(R.id.menu_ToolbarListLagu);
+        setSupportActionBar(toolbar);
+
         isiDaftarLagu();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -45,8 +52,7 @@ public class listLagu extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_dropbar, menu);
+        getMenuInflater().inflate(R.menu.menu_dropbar, menu);
         return true;
     }
 

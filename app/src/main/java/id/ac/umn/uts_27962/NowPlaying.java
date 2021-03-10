@@ -39,7 +39,6 @@ public class NowPlaying extends AppCompatActivity {
         buttonPrev = (ImageButton) findViewById(R.id.buttonPrev);
         buttonNext = (ImageButton) findViewById(R.id.buttonNext);
         songProgress = (SeekBar) findViewById(R.id.songProgress);
-
         fillTitleSong = (TextView) findViewById(R.id.fillTitleSong);
 
         Intent intent = getIntent();
@@ -91,20 +90,14 @@ public class NowPlaying extends AppCompatActivity {
         songProgress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if(fromUser){
-                    mediaPlayer.seekTo(progress);
-                }
+                if(fromUser){ mediaPlayer.seekTo(progress); }
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) { }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) { }
         });
     }
 
@@ -123,7 +116,7 @@ public class NowPlaying extends AppCompatActivity {
         try{
             mediaPlayer.release();
         } catch (Exception e){
-            Log.i("Test", "kocong");
+            Log.i("Test", "Debug Only");
         }
         SongDetails Lagu = arraySong.get(posisi);
         fillTitleSong.setText(Lagu.getTitle());
