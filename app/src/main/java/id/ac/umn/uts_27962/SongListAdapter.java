@@ -37,9 +37,9 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.ItemSo
 
     @Override
     public void onBindViewHolder(@NonNull ItemSongViewHolder holder, int position) {
-        SongDetails mSumberVideo = mDaftarSong.get(position);
-        holder.songTitle.setText(mSumberVideo.getTitle());
-        holder.songUri.setText(mSumberVideo.getSongURI());
+        SongDetails mSumberLagu = mDaftarSong.get(position);
+        holder.songTitle.setText(mSumberLagu.getTitle());
+        holder.songUri.setText(mSumberLagu.getSongURI());
     }
 
     @Override
@@ -52,7 +52,7 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.ItemSo
         private TextView songUri;
         private SongListAdapter mAdapter;
         private int mPosisi;
-        private SongDetails mSongDetails;
+        private SongDetails mSumberLagu;
 
         public ItemSongViewHolder(@NonNull View itemView, SongListAdapter adapter) {
             super(itemView);
@@ -65,9 +65,12 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.ItemSo
         @Override
         public void onClick(View v) {
             mPosisi = getLayoutPosition();
-            Intent detilInten = new Intent(mContext,
-                    DetailVideoActivity.class);
+            mSumberLagu = mDaftarSong.get(mPosisi);
+
+            Intent detilInten = new Intent(mContext, NowPlaying.class);
             Bundle bundle = new Bundle();
+            bundle.putSerializable("PosisiLagu",mPosisi);
+            bundle.putSerializable("DaftarLagu",mDaftarSong);
             detilInten.putExtras(bundle);
             mContext.startActivity(detilInten);
         }

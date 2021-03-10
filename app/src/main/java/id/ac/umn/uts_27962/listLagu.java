@@ -11,24 +11,28 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import java.util.LinkedList;
 
 public class listLagu extends AppCompatActivity {
+
     RecyclerView daftarLagu;
-    listLagu mAdapter;
+    SongListAdapter mAdapter;
     LinkedList<SongDetails> detailLagu = new LinkedList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_lagu);
+        setContentView(R.layout.activity_recycler_song);
 
-        isiDaftarLagu();
         daftarLagu = (RecyclerView) findViewById(R.id.recyclerview);
-        mAdapter = new listLagu(this, detailLagu);
+        mAdapter = new SongListAdapter(this, detailLagu);
         daftarLagu.setAdapter(mAdapter);
         daftarLagu.setLayoutManager(new LinearLayoutManager(this));
+        isiDaftarLagu();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(getString(R.string.namePop) + "\n" + getString(R.string.nimPop))
@@ -51,18 +55,24 @@ public class listLagu extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.do_goProfile:
                 Intent gotoProfile = new Intent(listLagu.this, Profile.class);
-                startActivityForResult(gotoProfile, 1);
+                startActivityForResult(gotoProfile, 2);
                 break;
 
             case R.id.do_goLogOut:
                 Intent gotoMain = new Intent(listLagu.this, MainActivity.class);
-                startActivityForResult(gotoMain, 1);
+                startActivityForResult(gotoMain, 3);
                 break;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
     public void isiDaftarLagu(){
-        detailLagu.add(new SongDetails("Song 1", R.raw.blueclapper));
+        detailLagu.add(new SongDetails("Answer", "android.resource://" +getPackageName() + "/" + R.raw.answer));
+        detailLagu.add(new SongDetails("Blue Clapper", "android.resource://" +getPackageName() + "/" + R.raw.blueclapper));
+        detailLagu.add(new SongDetails("Fiction", "android.resource://" +getPackageName() + "/" + R.raw.fiction));
+        detailLagu.add(new SongDetails("NAVIGATOR", "android.resource://" +getPackageName() + "/" + R.raw.navigator));
+        detailLagu.add(new SongDetails("PANTA RHEI", "android.resource://" +getPackageName() + "/" + R.raw.pantarhei));
+        detailLagu.add(new SongDetails("Suspect", "android.resource://" +getPackageName() + "/" + R.raw.suspect));
     }
 }

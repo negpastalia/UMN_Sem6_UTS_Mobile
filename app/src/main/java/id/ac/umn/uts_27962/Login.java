@@ -1,8 +1,10 @@
 package id.ac.umn.uts_27962;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,6 +47,8 @@ public class Login extends AppCompatActivity {
                 if(userString.equals(trueUsername) && passString.equals((truePassword))){
                     Intent gotoLogin = new Intent(Login.this, listLagu.class);
                     startActivityForResult(gotoLogin, 1);
+                } else {
+                    errorMes();
                 }
             }
         });
@@ -58,5 +62,15 @@ public class Login extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void errorMes(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(getString(R.string.errorMesg))
+                .setTitle(getString(R.string.error))
+                .setPositiveButton(getString(R.string.btnPop), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) { dialog.dismiss(); }
+                });
+        builder.create().show();
     }
 }

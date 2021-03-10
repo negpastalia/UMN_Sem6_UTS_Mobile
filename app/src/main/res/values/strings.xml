@@ -14,6 +14,11 @@
     <string name="btnPop">OK</string>
     //
 
+    //Popup Login
+    <string name="error">Failed to Signin</string>
+    <string name="errorMesg">Wrong username or password</string>
+    //
+
 </resources>
 
 
